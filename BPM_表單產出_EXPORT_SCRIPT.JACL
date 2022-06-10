@@ -1,0 +1,11 @@
+
+OPEN BPM_申請清單
+LOCATE RECORD v_Count
+
+temp_no = EXCLUDE(SPLIT(View代號,'.',1)," ")
+temp_name = EXCLUDE(SPLIT(View名稱,'.',1)," ")
+
+OPEN %temp_no%
+EXPORT FIELD ALL XLSX TO "RESULT_EXCEL/%temp_no%%temp_name%"
+
+v_Count = v_Count+1

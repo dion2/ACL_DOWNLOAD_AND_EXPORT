@@ -1,0 +1,15 @@
+SET FOLDER /TEMP
+SET PASSWORD 1 "PWD"
+
+OPEN BPM_申請清單
+LOCATE RECORD v_Count
+
+temp_no = EXCLUDE(SPLIT(View代號,'.',1)," ")
+temp_name = EXCLUDE(SPLIT(View名稱,'.',1)," ")
+IMPORT ODBC SOURCE "gp" TABLE "%temp_no%" QUALIFIER "GP" OWNER "DBUSER" USERID "aud" PASSWORD 1 TO "FIL\%temp_no%.FIL" WIDTH 50 MAXIMUM 100
+
+CLOSE %temp_name%
+
+v_Count = v_Count+1
+
+

@@ -1,0 +1,26 @@
+COM BPM_表單產出
+
+SET SAFETY OFF
+SET FOLDER /TEMP
+
+IMPORT EXCEL TO BPM_申請清單 "BPM_申請清單.fil" FROM "BPM_申請清單.xlsx" TABLE "工作表1$" KEEPTITLE FIELD "View代號" C WID 7 AS "" FIELD "View名稱" C WID 50 AS ""
+
+
+OPEN BPM_申請清單
+
+COUNT
+v_FIL_COUNT = COUNT1
+v_Count = 1
+
+DO BPM_表單產出_DOWNLOADF_SCRIPT WHILE v_FIL_COUNT >=  v_Count
+
+OPEN BPM_申請清單
+COUNT
+v_FIL_COUNT = COUNT1
+v_Count = 1
+
+DO BPM_表單產出_EXPORT_SCRIPT WHILE v_FIL_COUNT >=  v_Count
+
+DELETE FORMAT BPM_申請清單 OK
+DELETE BPM_申請清單 OK
+
