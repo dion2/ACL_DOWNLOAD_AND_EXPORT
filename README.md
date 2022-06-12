@@ -1,0 +1,3 @@
+# ACL_DOWNLOAD_AND_EXPORT
+# ACL Analytics
+ACL 軟體 讀取EXCEL表單清單，進行ODBC資料下載並轉出EXCEL
